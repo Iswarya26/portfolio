@@ -9,7 +9,7 @@ export const personal = {
   links: {
     linkedin: "#",
     github: "#",
-    resume: "/resume.pdf",
+    resume: "/portfolio/resume.pdf",
   },
 };
 
