@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 import { Download, Menu, X, Terminal } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { navLinks, personal } from "@/lib/data";
@@ -32,32 +33,43 @@ export function Navbar() {
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-muted-foreground hover:text-foreground transition-colors">
+            <motion.a
+              key={l.href}
+              href={l.href}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-muted-foreground hover:text-foreground transition-colors relative group"
+            >
               {l.label}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+            </motion.a>
           ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
-          <a
+          <motion.a
             href={personal.links.resume}
             download
-            className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/25"
           >
             <Download className="h-4 w-4" /> Resume
-          </a>
+          </motion.a>
         </div>
 
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
-          <button
+          <motion.button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border hover:bg-secondary transition"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -65,22 +77,25 @@ export function Navbar() {
         <div className="md:hidden glass border-t border-border">
           <div className="container py-4 flex flex-col gap-3">
             {navLinks.map((l) => (
-              <a
+              <motion.a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                whileHover={{ x: 4 }}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {l.label}
-              </a>
+              </motion.a>
             ))}
-            <a
+            <motion.a
               href={personal.links.resume}
               download
-              className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25"
             >
               <Download className="h-4 w-4" /> Resume
-            </a>
+            </motion.a>
           </div>
         </div>
       )}

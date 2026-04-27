@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
 import { CheckCircle2, Sparkles, Target } from "lucide-react";
@@ -12,10 +15,15 @@ export function Projects() {
           description="Selected work spanning DevOps automation, AI-driven data security, and orchestration tooling."
         />
         <div className="grid gap-6 lg:grid-cols-2">
-          {projects.map((p) => (
-            <article
+          {projects.map((p, index) => (
+            <motion.article
               key={p.name}
-              className="group relative rounded-2xl border border-border bg-card/60 p-6 hover:border-primary/50 transition-colors flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative rounded-2xl border border-border bg-card/60 p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col"
             >
               <div className="flex items-start justify-between gap-3 mb-3">
                 <h3 className="text-xl font-bold">{p.name}</h3>
@@ -64,15 +72,16 @@ export function Projects() {
 
               <div className="mt-5 pt-5 border-t border-border flex flex-wrap gap-1.5">
                 {p.stack.map((s) => (
-                  <span
+                  <motion.span
                     key={s}
-                    className="inline-flex items-center rounded-md border border-border bg-secondary/40 px-2 py-0.5 text-[11px] font-mono text-muted-foreground"
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center rounded-md border border-border bg-secondary/40 px-2 py-0.5 text-[11px] font-mono text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 transition-colors cursor-default"
                   >
                     {s}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

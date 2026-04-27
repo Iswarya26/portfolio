@@ -1,32 +1,55 @@
 # Iswarya S — DevOps Portfolio
 
-Personal portfolio for **Iswarya S**, Senior DevOps Engineer.
+A modern, responsive personal portfolio for Iswarya S (Senior DevOps Engineer) built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui.
 
-Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **shadcn/ui-style components**, **framer-motion**, and **next-themes**.
+## 🚀 Tech Stack
 
-## Local development
+- **Framework**: Next.js 14 (App Router) + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Icons**: lucide-react
+- **Animations**: framer-motion
+- **Theme**: next-themes (dark default + light toggle)
+- **Hosting**: GitHub Pages
+
+## 📦 Installation
 
 ```bash
 npm install
+```
+
+## 🛠️ Development
+
+```bash
 npm run dev
 ```
 
-Visit http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Build
+## 🏗️ Build
 
 ```bash
 npm run build
-npm start
+npm run start
 ```
 
-## Deploy
+## 🌐 Deployment
 
-Deployed to Netlify (free tier). Push to your connected repo or use the Netlify CLI / Cascade `deploy_web_app`.
+This site is configured for automatic deployment to GitHub Pages via GitHub Actions.
 
-## Customize
+1. Push code to GitHub
+2. GitHub Actions automatically builds and deploys
+3. Site available at: `https://iswarya26.github.io/portfolio/`
 
-- Update content in `lib/data.ts`
-- Replace `public/resume.pdf` with your actual resume PDF
-- Update LinkedIn / GitHub URLs in `lib/data.ts`
-- Replace `public/favicon.ico` with your own
+## 📄 Resume
+
+Replace `public/resume.txt` with your actual `resume.pdf` to enable the download button.
+
+## 🎨 Customization
+
+Edit `lib/data.ts` to update:
+- Personal information
+- Skills
+- Experience
+- Projects
+- Awards
+- Education

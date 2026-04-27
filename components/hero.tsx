@@ -40,47 +40,57 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
+            <motion.a
               href="#contact"
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/25"
             >
               Get in touch <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={personal.links.resume}
               download
-              className="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-secondary/40 px-4 text-sm font-medium hover:bg-secondary transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-secondary/40 px-4 text-sm font-medium hover:bg-secondary hover:border-primary/50 transition shadow-md"
             >
               <Download className="h-4 w-4" /> Download Resume
-            </a>
+            </motion.a>
           </div>
 
           <div className="mt-8 flex items-center gap-3">
-            <a
+            <motion.a
               href={personal.links.linkedin}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary transition"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary hover:border-primary/50 hover:text-primary transition shadow-sm"
             >
               <Linkedin className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={personal.links.github}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary transition"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary hover:border-primary/50 hover:text-primary transition shadow-sm"
             >
               <Github className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={`mailto:${personal.email}`}
               aria-label="Email"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary transition"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-secondary hover:border-primary/50 hover:text-primary transition shadow-sm"
             >
               <Mail className="h-4 w-4" />
-            </a>
+            </motion.a>
           </div>
         </motion.div>
 
@@ -88,9 +98,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          whileHover={{ y: -4 }}
           className="mt-16 max-w-3xl"
         >
-          <div className="rounded-xl border border-border bg-card/60 backdrop-blur p-5 font-mono text-sm shadow-lg">
+          <div className="rounded-xl border border-border bg-card/60 backdrop-blur p-5 font-mono text-sm shadow-lg hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-300">
             <div className="flex items-center gap-2 mb-3">
               <span className="h-3 w-3 rounded-full bg-red-500/80" />
               <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
